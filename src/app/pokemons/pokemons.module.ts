@@ -4,6 +4,7 @@ import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import {MatListModule} from "@angular/material/list";
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import {RouterModule} from "@angular/router";
+import {MatCardModule} from "@angular/material/card";
 
 
 
@@ -15,10 +16,11 @@ import {RouterModule} from "@angular/router";
   exports: [
     PokemonListComponent
   ],
-  imports: [
-    CommonModule,
-    MatListModule,
-    RouterModule
-  ]
+    imports: [
+        CommonModule,
+        MatListModule,
+        RouterModule,
+        MatCardModule
+    ]
 })
 export class PokemonsModule { }

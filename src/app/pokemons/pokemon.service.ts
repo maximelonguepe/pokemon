@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {catchError, Observable, tap} from "rxjs";
 import {Pokemon} from "./models/pokemon.model";
 import {Pagedata} from "./models/pagedata";
+import {Pokemondetail} from "./models/pokemondetail";
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +14,9 @@ export class PokemonService {
 
   getPokemons(): Observable<Pagedata<Pokemon>> {
     return this.http.get<Pagedata<Pokemon>>(this.heroesUrl);
+  }
+
+  getPokemon(id:number):Observable<Pokemondetail>{
+    return this.http.get<Pokemondetail>(this.heroesUrl+'/'+id);
   }
 }
