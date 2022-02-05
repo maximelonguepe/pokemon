@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {PokemonService} from "../pokemon.service";
 import {Pokemondetail} from "../models/pokemondetail";
 import { Location } from '@angular/common'
+import { DecimalPipe } from '@angular/common';
 @Component({
   selector: 'app-pokemon-detail',
   templateUrl: './pokemon-detail.component.html',
@@ -10,7 +11,7 @@ import { Location } from '@angular/common'
 })
 export class PokemonDetailComponent implements OnInit {
    pokemonDetail ?: Pokemondetail;
-  constructor(private route : ActivatedRoute, private pokemonService:PokemonService,private location:Location) { }
+  constructor(private route : ActivatedRoute, private pokemonService:PokemonService,private location:Location, private decimalPipe:DecimalPipe) { }
 
   ngOnInit(): void {
     this.getPokemon();
@@ -20,6 +21,9 @@ export class PokemonDetailComponent implements OnInit {
     const id=Number(this.route.snapshot.paramMap.get('id'));
     this.pokemonService.getPokemon(id).subscribe(pk=>this.pokemonDetail=pk);
 
+  }
+  correctNumber(nombre:number): string{
+    return <string>this.decimalPipe.transform(nombre, '3.0-0')
   }
 
 }

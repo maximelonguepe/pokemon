@@ -1,27 +1,38 @@
+<ng-template #spinner>En attente de l'API</ng-template>
 <ng-container *ngIf="pokemonDetail">
-  <mat-card class="home-card">
-    <mat-card-title-group>
+  <mat-card class="detail-pokemon">
+    <mat-grid-list cols="2">
+      <mat-grid-tile>
+        <div>
+          <img mat-card-lg-image src="assets/img/official-artwork/{{pokemonDetail.id}}.png" alt="pokemon sprite" />
+          <p>No. {{correctNumber(pokemonDetail.id)}}</p>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-list>
+          <mat-list-item>
+            <strong>{{pokemonDetail.name}}</strong>
+            <button mat-icon-button (click)="audio.play()">
+              <mat-icon>play_circle_outline</mat-icon>
+            </button>
+            <audio autoplay #audio>
+              <source src="assets/audio/{{pokemonDetail.id}}.mp3" type="audio/mpeg" >
 
-    </mat-card-title-group>
-    <mat-card-content class="home-card-content">
+            </audio>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-chip-list aria-label="Types">
+              <mat-chip color="primary" *ngFor="let type of pokemonDetail.types">{{type}}</mat-chip>
+            </mat-chip-list>
+          </mat-list-item>
+          <mat-list-item>Taille: {{pokemonDetail.height}} m</mat-list-item>
+          <mat-list-item>Poids: {{pokemonDetail.weight}} kg</mat-list-item>
+        </mat-list>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2">
+        <p>{{pokemonDetail.description}}</p>
+      </mat-grid-tile>
+    </mat-grid-list>
 
-      <img class="image_pkm" mat-card-md-image src="assets/img/official-artwork/{{pokemonDetail.id}}.png" >
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Medium</mat-card-subtitle>
-    </mat-card-content>
   </mat-card>
 </ng-container>
-
-
-<mat-card class="home-card">
-  <mat-card-content class="home-card-content">
-    <img mat-card-image
-         src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-         alt="Photo of a Shiba Inu">
-    <div>
-      <div>Second</div>
-      <div>Third</div>
-      <div>Fourth</div>
-    </div>
-  </mat-card-content>
-</mat-card>
