@@ -19,4 +19,5 @@ export class PokemonService {
   getPokemon(id:number):Observable<Pokemondetail>{
     return this.http.get<Pokemondetail>(this.heroesUrl+'/'+id);
   }
+
 }

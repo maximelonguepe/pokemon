@@ -20,4 +20,7 @@ export class PokemonListComponent implements OnInit {
     this.pokemonService.getPokemons().subscribe(pagedata=>this.pokemons=pagedata.data);
 
   }
+  onscroll(){
+
+  }
 }

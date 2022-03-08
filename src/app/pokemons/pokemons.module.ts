@@ -10,13 +10,15 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatChipsModule} from "@angular/material/chips";
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
+import { PokedexComponent } from './pokedex/pokedex.component';
 
 
 
 @NgModule({
   declarations: [
     PokemonListComponent,
-    PokemonDetailComponent
+    PokemonDetailComponent,
+    PokedexComponent
   ],
   exports: [
     PokemonListComponent
