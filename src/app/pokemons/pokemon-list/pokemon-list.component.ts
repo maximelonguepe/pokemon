@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Pokemon} from "../models/pokemon.model";
 import {PokemonService} from "../pokemon.service";
 
@@ -9,7 +9,7 @@ import {PokemonService} from "../pokemon.service";
 })
 export class PokemonListComponent implements OnInit {
   pokemons ?: Pokemon[];
-
+  @Output() selectedPokemon = new EventEmitter<number>();
   constructor(private pokemonService:PokemonService) { }
 
   ngOnInit(): void {
@@ -22,5 +22,9 @@ export class PokemonListComponent implements OnInit {
   }
   onscroll(){
 
+  }
+
+  onclick(id:number){
+    this.selectedPokemon.emit(id);
   }
 }

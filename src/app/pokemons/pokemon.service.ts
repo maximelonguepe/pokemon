@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {catchError, Observable, tap} from "rxjs";
 import {Pokemon} from "./models/pokemon.model";
 import {Pagedata} from "./models/pagedata";
@@ -13,10 +13,11 @@ export class PokemonService {
   constructor(private http:HttpClient) { }
 
   getPokemons(): Observable<Pagedata<Pokemon>> {
-    return this.http.get<Pagedata<Pokemon>>(this.heroesUrl);
+    const params =new HttpParams().set('offset',0).set('limit',1000);
+    return this.http.get<Pagedata<Pokemon>>(this.heroesUrl,{params});
   }
 
-  getPokemon(id:number):Observable<Pokemondetail>{
+  getPokemon(id: number | undefined):Observable<Pokemondetail>{
     return this.http.get<Pokemondetail>(this.heroesUrl+'/'+id);
   }
 

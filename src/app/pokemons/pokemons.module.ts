@@ -11,6 +11,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatChipsModule} from "@angular/material/chips";
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
 import { PokedexComponent } from './pokedex/pokedex.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 
 
@@ -33,6 +34,7 @@ import { PokedexComponent } from './pokedex/pokedex.component';
     MatButtonModule,
     MatChipsModule,
     InfiniteScrollModule,
+    MatSidenavModule,
   ],
   providers:[
     DecimalPipe

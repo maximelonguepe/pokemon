@@ -1,25 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PokemonService} from "../pokemon.service";
 import {Pokemondetail} from "../models/pokemondetail";
 import { Location } from '@angular/common'
 import { DecimalPipe } from '@angular/common';
+import {Observable} from "rxjs";
+import {Pokemon} from "../models/pokemon.model";
 @Component({
   selector: 'app-pokemon-detail',
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.scss']
 })
-export class PokemonDetailComponent implements OnInit {
+export class PokemonDetailComponent implements OnInit,OnChanges {
    pokemonDetail ?: Pokemondetail;
   constructor(private route : ActivatedRoute, private pokemonService:PokemonService,private location:Location, private decimalPipe:DecimalPipe) { }
-
+  @Input() id?:number;
+  pokemon : Pokemon | undefined;
   ngOnInit(): void {
     this.getPokemon();
   }
+  ngOnChanges():void{
+    this.getPokemon();
 
+  }
   getPokemon(){
-    const id=Number(this.route.snapshot.paramMap.get('id'));
-    this.pokemonService.getPokemon(id).subscribe(pk=>this.pokemonDetail=pk);
+  if (this.id)
+    this.pokemonService.getPokemon(this.id).subscribe(pk=>this.pokemonDetail=pk);
 
   }
   correctNumber(nombre:number): string{
