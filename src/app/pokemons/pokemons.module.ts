@@ -16,6 +16,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {TextFieldModule} from "@angular/cdk/text-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
+import { MyteamComponent } from './myteam/myteam.component';
 
 
 
@@ -23,7 +24,8 @@ import {FormsModule} from "@angular/forms";
   declarations: [
     PokemonListComponent,
     PokemonDetailComponent,
-    PokedexComponent
+    PokedexComponent,
+    MyteamComponent
   ],
   exports: [
     PokemonListComponent

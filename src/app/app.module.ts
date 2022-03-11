@@ -12,11 +12,16 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import { MyteamComponent } from './pokemon/myteam/myteam.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    MyteamComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +34,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     MatMenuModule,
     MatCardModule,
     MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
 
   ],
   providers: [],
