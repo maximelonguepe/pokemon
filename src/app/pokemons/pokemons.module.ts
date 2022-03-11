@@ -12,6 +12,10 @@ import {MatChipsModule} from "@angular/material/chips";
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
 import { PokedexComponent } from './pokedex/pokedex.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {TextFieldModule} from "@angular/cdk/text-field";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -35,6 +39,10 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     MatChipsModule,
     InfiniteScrollModule,
     MatSidenavModule,
+    MatFormFieldModule,
+    TextFieldModule,
+    MatInputModule,
+    FormsModule,
   ],
   providers:[
     DecimalPipe

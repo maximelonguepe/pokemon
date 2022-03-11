@@ -9,22 +9,39 @@ import {PokemonService} from "../pokemon.service";
 })
 export class PokemonListComponent implements OnInit {
   pokemons ?: Pokemon[];
+  pokemonsTest ?: Pokemon[];
+  pokemonSearch ?: string;
   @Output() selectedPokemon = new EventEmitter<number>();
-  constructor(private pokemonService:PokemonService) { }
+
+  constructor(private pokemonService: PokemonService) {
+  }
 
   ngOnInit(): void {
     this.getPokemons();
   }
-  getPokemons(){
+
+  getPokemons() {
     //this.heroes=this.heroService.getHeroes();
-    this.pokemonService.getPokemons().subscribe(pagedata=>this.pokemons=pagedata.data);
-
-  }
-  onscroll(){
+    this.pokemonService.getPokemons().subscribe(pagedata => this.pokemons = pagedata.data);
 
   }
 
-  onclick(id:number){
+  onscroll() {
+
+  }
+
+  searchPokemon(nomPokemon ?: string) {
+    this.pokemonSearch = nomPokemon;
+    console.log(this.pokemonSearch);
+    if(this.pokemonSearch==""){
+      this.getPokemons();
+    }
+    else {
+      this.pokemonService.getPokemonName(nomPokemon).subscribe(pagedata => this.pokemons = pagedata.data);
+    }
+  }
+
+  onclick(id: number) {
     this.selectedPokemon.emit(id);
   }
 }
