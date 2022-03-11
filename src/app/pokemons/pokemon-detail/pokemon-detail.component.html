@@ -24,8 +24,8 @@
               <mat-chip color="primary" *ngFor="let type of pokemonDetail.types">{{type}}</mat-chip>
             </mat-chip-list>
           </mat-list-item>
-          <mat-list-item>Taille: {{pokemonDetail.height}} m</mat-list-item>
-          <mat-list-item>Poids: {{pokemonDetail.weight}} kg</mat-list-item>
+          <mat-list-item>Taille: {{correctHeightandWeight(pokemonDetail.height)}} m</mat-list-item>
+          <mat-list-item>Poids: {{correctHeightandWeight(pokemonDetail.weight)}} kg</mat-list-item>
         </mat-list>
       </mat-grid-tile>
       <mat-grid-tile colspan="2">
@@ -33,7 +33,7 @@
       </mat-grid-tile>
     </mat-grid-list>
     <nav >
-      <a routerLink="/pokemons">
+      <a (click)="cacherPokemon()" >
         <img src="assets/img/others/retour.png" id="retour" alt="bouton retour">
       </a>
     </nav>

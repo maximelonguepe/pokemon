@@ -6,10 +6,17 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
 import {PokemonsModule} from "./pokemons/pokemons.module";
+import { ConnexionComponent } from './connexion/connexion.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatCardModule} from "@angular/material/card";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,
@@ -17,6 +24,11 @@ import {PokemonsModule} from "./pokemons/pokemons.module";
     BrowserAnimationsModule,
     HttpClientModule,
     PokemonsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatCardModule,
+    MatFormFieldModule,
 
   ],
   providers: [],

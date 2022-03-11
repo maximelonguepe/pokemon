@@ -32,4 +32,12 @@ export class PokemonDetailComponent implements OnInit,OnChanges {
     return <string>this.decimalPipe.transform(nombre, '3.0-0')
   }
 
+  correctHeightandWeight(taillepoids : number){
+    return <string>this.decimalPipe.transform(taillepoids, '.1')
+  }
+
+  cacherPokemon(){
+    this.pokemonDetail=undefined;
+  }
+
 }

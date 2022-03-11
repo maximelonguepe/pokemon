@@ -16,7 +16,6 @@ export class PokedexComponent implements OnInit {
   }
 
   changeId(identifiant: number) {
-    console.log(identifiant);
     this.id = identifiant;
   }
 
