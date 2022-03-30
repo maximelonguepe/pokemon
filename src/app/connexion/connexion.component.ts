@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ConnexionService} from "./connexion.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TokenUser} from "./TokenUser";
+import {Router} from "@angular/router";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-connexion',
@@ -14,13 +16,17 @@ export class ConnexionComponent implements OnInit {
     username:["",[Validators.email,Validators.required]],
     password:["",Validators.required]
   });
-  constructor(private connexionService: ConnexionService, private fb : FormBuilder) { }
+  constructor(private connexionService: ConnexionService, private fb : FormBuilder, private router:Router, private cookie : CookieService) { }
 
   ngOnInit(): void {
   }
 
   seConnecter(){
-  console.log(this.form.get("username")?.value);
-  this.connexionService.postUser(this.form.get("username")?.value,this.form.get("password")?.value).subscribe(pagedata => this.token = pagedata);
+    this.connexionService.postUser(this.form.get("username")?.value,this.form.get("password")?.value).subscribe(pagedata => this.token = pagedata);
+    console.log(this.token?.access_token);
+    if(this.token!=undefined || this.token!=null){
+      this.router.navigate( ["myteam"],{state: {data: this.token}})
+    }
+    this.cookie.set('token',<string>this.token?.access_token)
   }
 }

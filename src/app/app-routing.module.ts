@@ -4,11 +4,13 @@ import {PokemonDetailComponent} from "./pokemons/pokemon-detail/pokemon-detail.c
 import {PokemonListComponent} from "./pokemons/pokemon-list/pokemon-list.component";
 import {PokedexComponent} from "./pokemons/pokedex/pokedex.component";
 import {ConnexionComponent} from "./connexion/connexion.component";
+import {MyteamComponent} from "./pokemons/myteam/myteam.component";
 
 const routes: Routes = [
   { path: 'pokemons/:id', component: PokemonDetailComponent },
   { path: 'pokemons', component: PokedexComponent },
   { path: 'connexion', component: ConnexionComponent },
+  { path: 'myteam', component: MyteamComponent },
   { path: '', redirectTo: '/pokemons', pathMatch: 'full' },
 ];
 
